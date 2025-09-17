@@ -1,0 +1,43 @@
+using System.Diagnostics;
+using JpWebApp.Models;
+using Microsoft.AspNetCore.Mvc;
+
+namespace JpWebApp.Controllers
+{
+    public class HomeController : Controller
+    {
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger)
+        {
+            _logger = logger;
+        }
+
+        public IActionResult Index()
+        {
+            
+            //return this.Json("textoo");
+            return View();
+        }
+
+
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+        //PaginaDoJader
+
+        public IActionResult PaginaDoJader()
+        {
+            return View();
+        }
+
+      
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+    }
+}
