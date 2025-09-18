@@ -1,10 +1,18 @@
-﻿using JpWebApp.Models;
+﻿using JpWebApp.Data.Repositorio.Interfaces;
+using JpWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JpWebApp.Controllers
 {
     public class LoginController : Controller
     {
+        private readonly IUsuarioRepositorio _usuarioRepositorio;
+
+        public LoginController(IUsuarioRepositorio _usuarioRepositorio)
+        {
+            this._usuarioRepositorio = _usuarioRepositorio;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -14,7 +22,9 @@ namespace JpWebApp.Controllers
         {
             try
             {
-                if (usuario.Email == "email@email.com" && usuario.Senha == "123456789")
+                var usuarioDb = _usuarioRepositorio.GetUsuarioPorEmail(usuario.Email);
+
+                if (usuario.Email == usuarioDb?.Email && usuario.Senha == usuarioDb?.Senha)
                 {
                     return RedirectToAction("Index", "Home");
                 }
@@ -35,6 +45,22 @@ namespace JpWebApp.Controllers
         public IActionResult Cadastro()
         {
             return View();
+        }
+
+        public IActionResult CadastrarUsuario(Usuario usuario)
+        {
+            //Console.WriteLine("usuario nome "  + usuario.Email);
+            //Console.WriteLine("usuario senha "  + usuario.Senha);
+            try
+            {
+                _usuarioRepositorio.CadastrarUsuario(usuario);
+                return View("Index");
+            }
+            catch (Exception)
+            {
+                TempData["MsgErro"] = "Erro ao cadastrar usuário";
+            }
+            return View("Cadastro");
         }
     }
 }

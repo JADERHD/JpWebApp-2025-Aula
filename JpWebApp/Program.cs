@@ -1,3 +1,8 @@
+using JpWebApp.Data;
+using JpWebApp.Data.Repositorio;
+using JpWebApp.Data.Repositorio.Interfaces;
+using Microsoft.EntityFrameworkCore;
+
 namespace JpWebApp
 {
     public class Program
@@ -8,6 +13,11 @@ namespace JpWebApp
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            var connectionstring = builder.Configuration.GetConnectionString("StringConexao");
+            builder.Services.AddDbContext<BancoContexto>(options => options.UseSqlServer(connectionstring));
+
+            builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
 
             var app = builder.Build();
 
