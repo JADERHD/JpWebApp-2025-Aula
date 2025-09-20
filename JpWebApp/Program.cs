@@ -1,5 +1,6 @@
 using JpWebApp.Data;
 using JpWebApp.Data.Repositorio;
+using JpWebApp.Data.Repositorio.interfaces;
 using JpWebApp.Data.Repositorio.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,6 +19,7 @@ namespace JpWebApp
             builder.Services.AddDbContext<BancoContexto>(options => options.UseSqlServer(connectionstring));
 
             builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
+            builder.Services.AddScoped<IAlunoRepositorio, AlunoRepositorio>();
 
             var app = builder.Build();
 

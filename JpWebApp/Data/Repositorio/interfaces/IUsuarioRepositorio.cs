@@ -7,5 +7,7 @@ namespace JpWebApp.Data.Repositorio.Interfaces
         public void CadastrarUsuario(Usuario usuario);
 
         public Usuario? GetUsuarioPorEmail(string email);
+
+        public Usuario ValidarUsuario(Usuario usuario);
     }
 }

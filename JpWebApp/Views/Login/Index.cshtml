@@ -14,6 +14,14 @@ texto de comentario
     </div>
 }
 
+@if (TempData["cadastroOK"] != null)
+{
+    <div class="alert-sucess">
+        @TempData["cadastroOK"]
+    </div>
+}
+
+
 @model Usuario
 
 <form class="row g-3" asp-controller="Login" asp-action="ValidaUsuario">

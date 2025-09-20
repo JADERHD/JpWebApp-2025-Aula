@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+<p>pagina do aluno</p>
+*@
+@{
+}
+
+
+@model IEnumerable<Aluno>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Matricula</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Cpf</th>
+            <th scope="col">Data de Nascimento</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Matricula</td>
+                <td>@item.Nome</td>
+                <td>@item.Cpf</td>
+                <td>@item.Data_De_Nascimento</td>
+                <td>
+                    <div class="d-grid gap-2 d-md-block">
+                        <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="Editar">Editar</a>
+                        <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="Excluir">Excluir</a>
+                    </div>
+                </td>
+            </tr>
+        }
+        
+
+
+
+    </tbody>
+</table>
+
+<div class="text-center">
+    <a class="btn btn-primary" type="button" asp-controller="Aluno" asp-action="AdicionarAluno"> Adicionar Aluno</a>
+    <a class="btn btn-primary" type="button" asp-controller="Home" asp-action="Index"> Voltar</a>
+</div>

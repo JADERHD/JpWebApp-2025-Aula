@@ -22,16 +22,24 @@ namespace JpWebApp.Controllers
         {
             try
             {
+                var retorno = _usuarioRepositorio.ValidarUsuario(usuario);
+                if (retorno != null)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
+                /*
                 var usuarioDb = _usuarioRepositorio.GetUsuarioPorEmail(usuario.Email);
 
                 if (usuario.Email == usuarioDb?.Email && usuario.Senha == usuarioDb?.Senha)
                 {
                     return RedirectToAction("Index", "Home");
                 }
+                */
             }
-            catch (Exception)
+            catch (Exception e)
             {
- 
+               
             }
 
             TempData["MsgErro"] = "usuario ou senha esta errado! tente novamente...";
@@ -54,6 +62,7 @@ namespace JpWebApp.Controllers
             try
             {
                 _usuarioRepositorio.CadastrarUsuario(usuario);
+                TempData["cadastroOK"] = "Cadastro realizado com sucesso!";
                 return View("Index");
             }
             catch (Exception)
