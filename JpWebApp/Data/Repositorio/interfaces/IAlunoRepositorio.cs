@@ -6,5 +6,7 @@ namespace JpWebApp.Data.Repositorio.interfaces
     public interface IAlunoRepositorio
     {
         IEnumerable<Aluno> GetAlunos();
+
+        void NovoAluno(Aluno aluno);
     }
 }

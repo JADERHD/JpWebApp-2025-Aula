@@ -4,6 +4,13 @@
 
 @model Usuario
 
+@if (TempData["MsgErro"] != null)
+{
+    <div class="alert-danger">
+        @TempData["MsgErro"]
+    </div>
+}
+
 <form asp-controller="Login" asp-action="CadastrarUsuario" method="post">
 
     <div class="mb-3 col-md-4">

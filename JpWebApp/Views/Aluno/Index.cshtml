@@ -5,6 +5,21 @@
 @{
 }
 
+@if (TempData["MsgErro"] != null)
+{
+    <div class="alert-danger">
+        @TempData["MsgErro"]
+    </div>
+}
+
+@if (TempData["cadastroOK"] != null)
+{
+    <div class="alert-sucess">
+        @TempData["cadastroOK"]
+    </div>
+}
+
+
 
 @model IEnumerable<Aluno>
 
@@ -15,28 +30,41 @@
             <th scope="col">Nome</th>
             <th scope="col">Cpf</th>
             <th scope="col">Data de Nascimento</th>
+            <th scope="col">CEP</th>
+            <th scope="col">Logradouro</th>
+            <th scope="col">Cidade</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Bairo</th>
+            <th scope="col">Numero</th>
         </tr>
     </thead>
     <tbody>
 
-        @foreach (var item in Model)
+        @if (Model != null)
         {
-            <tr>
-                <td>@item.Matricula</td>
-                <td>@item.Nome</td>
-                <td>@item.Cpf</td>
-                <td>@item.Data_De_Nascimento</td>
-                <td>
-                    <div class="d-grid gap-2 d-md-block">
-                        <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="Editar">Editar</a>
-                        <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="Excluir">Excluir</a>
-                    </div>
-                </td>
-            </tr>
-        }
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Matricula</td>
+                    <td>@item.Nome</td>
+                    <td>@item.Cpf</td>
+                    <td>@item.Data_De_Nascimento</td>
+                    <td>@item.CEP</td>
+                    <td>@item.Logradouro</td>
+                    <td>@item.Cidade</td>
+                    <td>@item.Estado</td>
+                    <td>@item.Bairo</td>
+                    <td>@item.Numero</td>
+                    <td>
+                        <div class="d-grid gap-2 d-md-block">
+                            <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="Editar">Editar</a>
+                            <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="Excluir">Excluir</a>
+                        </div>
+                    </td>
+                </tr>
+            }
         
-
-
+        }
 
     </tbody>
 </table>

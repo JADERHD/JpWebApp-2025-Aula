@@ -17,6 +17,13 @@ namespace JpWebApp.Data.Mapeamento
             builder.Property(t => t.Cpf).HasColumnType("varchar(14)");
             builder.Property(t => t.Data_De_Nascimento).HasColumnType("date");
 
+
+            builder.Property(t => t.CEP).HasColumnType("varchar(9)");
+            builder.Property(t => t.Logradouro).HasColumnType("varchar(100)");
+            builder.Property(t => t.Cidade).HasColumnType("varchar(100)");
+            builder.Property(t => t.Estado).HasColumnType("varchar(2)");
+            builder.Property(t => t.Bairo).HasColumnType("varchar(100)");
+            builder.Property(t => t.Numero).HasColumnType("varchar(50)");
         }
     }
 }

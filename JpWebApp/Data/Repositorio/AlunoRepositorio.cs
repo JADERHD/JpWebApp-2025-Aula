@@ -16,5 +16,11 @@ namespace JpWebApp.Data.Repositorio
         {
            return _bancoContexto.Aluno.ToArray();
         }
+
+        public void NovoAluno(Aluno aluno)
+        {
+            _bancoContexto.Aluno.Add(aluno);
+            _bancoContexto.SaveChanges();
+        }
     }
 }
