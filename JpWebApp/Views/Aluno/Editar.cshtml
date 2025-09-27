@@ -14,9 +14,9 @@
     </div>
 }
 
-<h1>Cadastrar Aluno:</h1>
+<h1>Editar Aluno:</h1>
 
-<form asp-controller="Aluno" asp-action="NovoAluno" method="post">
+<form asp-controller="Aluno" asp-action="AtualizarAluno" asp-route-id="@Model.Id" method="post">
 
     <p>Dados Gerais:</p>
 
@@ -82,7 +82,7 @@
 
 
     <div class="text-center">
-        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <button type="submit" class="btn btn-primary">Salvar edição</button>
         <a class="btn btn-primary" type="button" asp-controller="Aluno" asp-action="Index"> Voltar</a>
     </div>
 </form>

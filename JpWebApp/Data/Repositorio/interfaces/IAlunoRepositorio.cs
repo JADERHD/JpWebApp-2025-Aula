@@ -7,6 +7,12 @@ namespace JpWebApp.Data.Repositorio.interfaces
     {
         IEnumerable<Aluno> GetAlunos();
 
+        Aluno? GetAluno(int ID);
+
         void NovoAluno(Aluno aluno);
+
+        void AtualizarAluno(Aluno aluno);
+
+        void Excluir(Aluno aluno);
     }
 }

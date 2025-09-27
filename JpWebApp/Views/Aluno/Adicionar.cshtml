@@ -1,0 +1,96 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<style>
+    .erro{ color: red;}
+
+</style>
+
+@model Aluno
+
+@if (TempData["MsgErro"] != null)
+{
+    <div class="alert-danger">
+        @TempData["MsgErro"]
+    </div>
+}
+
+<h1>Cadastrar Aluno:</h1>
+
+<form asp-controller="Aluno" asp-action="NovoAluno" method="post">
+
+    <p>Dados Gerais:</p>
+
+    <div class="mb-3 col-md-4">
+        <label class="form-label">Nome</label>
+        @if (TempData["ErroNome"] != null)
+        {
+            <p class="erro">@TempData["ErroNome"]</p>
+        }
+        <input type="text" asp-for="Nome" class="form-control" required>
+    </div>
+
+    <div class="mb-3 col-md-4">
+        <label class="form-label">Cpf</label>
+        <input type="text" asp-for="Cpf" class="form-control" required>
+    </div>
+
+    <div class="mb-3 col-md-4">
+        <label class="form-label">Matricula</label>
+        <input type="text" asp-for="Matricula" class="form-control" required>
+    </div>
+
+
+    <div class="mb-3 col-md-4">
+        <label class="form-label">Data De Nascimento</label>
+        <input type="date" asp-for="Data_De_Nascimento" class="form-control" required>
+    </div>
+
+    <p>Endereço:</p>
+
+    <div class="mb-3 col-md-4" >
+        <label class="form-label">CEP</label>
+        <input type="text" asp-for="CEP" class="form-control" required>
+    </div>
+
+    <div class="mb-3 col-md-4">
+        <label class="form-label">Logradouro</label>
+        <input type="text" asp-for="Logradouro" class="form-control" required>
+    </div>
+
+    <div class="mb-3 col-md-4">
+        <label class="form-label">Cidade</label>
+        <input type="text" asp-for="Cidade" class="form-control" required>
+    </div>
+
+    <div class="mb-3 col-md-4">
+        <label class="form-label">Cidade</label>
+        <input type="text" asp-for="Cidade" class="form-control" required>
+    </div>
+
+    <div class="mb-3 col-md-4">
+        <label class="form-label">Estado</label>
+        <input type="text" asp-for="Estado" class="form-control" required>
+    </div>
+
+
+    <div class="mb-3 col-md-4">
+        <label class="form-label">Bairo</label>
+        <input type="text" asp-for="Bairo" class="form-control" required>
+    </div>
+
+
+    <div class="mb-3 col-md-4">
+        <label class="form-label">Numero</label>
+        <input type="text" asp-for="Numero" class="form-control" required>
+    </div>
+
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <a class="btn btn-primary" type="button" asp-controller="Aluno" asp-action="Index"> Voltar</a>
+    </div>
+</form>

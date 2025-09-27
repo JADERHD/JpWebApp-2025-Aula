@@ -12,6 +12,23 @@ namespace JpWebApp.Data.Repositorio
             _bancoContexto = bancoContexto;
         }
 
+        public void AtualizarAluno(Aluno aluno)
+        {
+            _bancoContexto.Aluno.Update(aluno);
+            _bancoContexto.SaveChanges();
+        }
+
+        public void Excluir(Aluno aluno)
+        {
+            _bancoContexto.Aluno.Remove(aluno);
+            _bancoContexto.SaveChanges();
+        }
+
+        public Aluno? GetAluno(int ID)
+        {
+            return _bancoContexto.Aluno.FirstOrDefault(a => a.Id == ID);
+        }
+
         public IEnumerable<Aluno> GetAlunos()
         {
            return _bancoContexto.Aluno.ToArray();

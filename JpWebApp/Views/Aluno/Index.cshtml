@@ -57,8 +57,8 @@
                     <td>@item.Numero</td>
                     <td>
                         <div class="d-grid gap-2 d-md-block">
-                            <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="Editar">Editar</a>
-                            <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="Excluir">Excluir</a>
+                            <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="Editar" asp-route-id="@item.Id">Editar</a>
+                            <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="Excluir" asp-route-id="@item.Id">Excluir</a>
                         </div>
                     </td>
                 </tr>
@@ -70,6 +70,6 @@
 </table>
 
 <div class="text-center">
-    <a class="btn btn-primary" type="button" asp-controller="Aluno" asp-action="AdicionarAluno"> Adicionar Aluno</a>
+    <a class="btn btn-primary" type="button" asp-controller="Aluno" asp-action="Adicionar"> Adicionar Aluno</a>
     <a class="btn btn-primary" type="button" asp-controller="Home" asp-action="Index"> Voltar</a>
 </div>
