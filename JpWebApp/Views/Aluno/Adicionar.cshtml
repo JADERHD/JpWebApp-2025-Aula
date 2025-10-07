@@ -53,44 +53,58 @@
 
     <div class="mb-3 col-md-4" >
         <label class="form-label">CEP</label>
-        <input type="text" asp-for="CEP" class="form-control" required>
+        <input type="text" asp-for="CEP" id="CEP" class="form-control" required>
     </div>
 
     <div class="mb-3 col-md-4">
         <label class="form-label">Logradouro</label>
-        <input type="text" asp-for="Logradouro" class="form-control" required>
+        <input type="text" asp-for="Logradouro" id="Logradouro" class="form-control" required>
     </div>
-
-    <div class="mb-3 col-md-4">
-        <label class="form-label">Cidade</label>
-        <input type="text" asp-for="Cidade" class="form-control" required>
-    </div>
-
-    <div class="mb-3 col-md-4">
-        <label class="form-label">Cidade</label>
-        <input type="text" asp-for="Cidade" class="form-control" required>
-    </div>
-
-    <div class="mb-3 col-md-4">
-        <label class="form-label">Estado</label>
-        <input type="text" asp-for="Estado" class="form-control" required>
-    </div>
-
-
-    <div class="mb-3 col-md-4">
-        <label class="form-label">Bairo</label>
-        <input type="text" asp-for="Bairo" class="form-control" required>
-    </div>
-
 
     <div class="mb-3 col-md-4">
         <label class="form-label">Numero</label>
         <input type="text" asp-for="Numero" class="form-control" required>
     </div>
 
+    <div class="mb-3 col-md-4">
+        <label class="form-label">Bairo</label>
+        <input type="text" asp-for="Bairo" id="Bairro" class="form-control" required>
+    </div>
+
+    <div class="mb-3 col-md-4">
+        <label class="form-label">Cidade</label>
+        <input type="text" asp-for="Cidade" id="Cidade" class="form-control" required>
+    </div>
+
+    <div class="mb-3 col-md-4">
+        <label class="form-label">Estado</label>
+        <input type="text" asp-for="Estado" id="Estado" class="form-control" required>
+    </div>
 
     <div class="text-center">
         <button type="submit" class="btn btn-primary">Cadastrar</button>
         <a class="btn btn-primary" type="button" asp-controller="Aluno" asp-action="Index"> Voltar</a>
     </div>
 </form>
+
+<script>
+    document.getElementById("CEP").addEventListener("blur", function () {
+        let cep = this.value.replace(/\D/g, ''); // só números
+
+        if (cep.length === 8) {
+            fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.erro) {
+                        document.getElementById("Logradouro").value = data.logradouro || "";
+                        document.getElementById("Bairro").value = data.bairro || "";
+                        document.getElementById("Cidade").value = data.localidade || "";
+                        document.getElementById("Estado").value = data.uf || "";
+                    } else {
+                        alert("CEP não encontrado!");
+                    }
+                })
+                .catch(err => console.error("Erro na consulta:", err));
+        }
+    });
+</script>
