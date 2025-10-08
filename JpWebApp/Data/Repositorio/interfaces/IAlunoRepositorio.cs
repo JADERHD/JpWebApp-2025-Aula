@@ -14,5 +14,13 @@ namespace JpWebApp.Data.Repositorio.interfaces
         void AtualizarAluno(Aluno aluno);
 
         void Excluir(Aluno aluno);
+
+        bool TemAlunoComMatricula(string matricula);
+
+        bool TemAlunoComCpf(string cpf);
+
+        bool TemAlunoComMatricula(string matricula, int id);
+
+        bool TemAlunoComCpf(string cpf, int id);
     }
 }

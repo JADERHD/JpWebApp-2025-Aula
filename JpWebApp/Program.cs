@@ -15,7 +15,7 @@ namespace JpWebApp
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
-            var connectionstring = builder.Configuration.GetConnectionString("StringConexao"); //StringConexaoSenac
+            var connectionstring = builder.Configuration.GetConnectionString("StringConexaoSenac"); //StringConexaoSenac
             builder.Services.AddDbContext<BancoContexto>(options => options.UseSqlServer(connectionstring));
 
             builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();

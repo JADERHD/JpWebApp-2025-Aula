@@ -5,6 +5,14 @@
 }
 
 
+<style>
+    .erro {
+        color: red;
+    }
+
+</style>
+
+
 @model Aluno
 
 @if (TempData["MsgErro"] != null)
@@ -22,58 +30,97 @@
 
     <div class="mb-3 col-md-4">
         <label class="form-label">Nome</label>
-        <input type="text" asp-for="Nome" class="form-control">
+        @if (TempData["ErroNome"] != null)
+        {
+            <p class="erro">@TempData["ErroNome"]</p>
+        }
+        @if (TempData["ErroNomeInvalida"] != null)
+        {
+            <p class="erro">@TempData["ErroNomeInvalida"]</p>
+        }
+        <input type="text" asp-for="Nome" class="form-control" required>
     </div>
 
     <div class="mb-3 col-md-4">
         <label class="form-label">Cpf</label>
-        <input type="text" asp-for="Cpf" class="form-control">
+        @if (TempData["ErroCpfInvalida"] != null)
+        {
+            <p class="erro">@TempData["ErroCpfInvalida"]</p>
+        }
+        <input type="text" asp-for="Cpf" class="form-control" required>
     </div>
 
     <div class="mb-3 col-md-4">
         <label class="form-label">Matricula</label>
-        <input type="text" asp-for="Matricula" class="form-control">
+        @if (TempData["ErroMatriculaInvalida"] != null)
+        {
+            <p class="erro">@TempData["ErroMatriculaInvalida"]</p>
+        }
+        <input type="text" asp-for="Matricula" class="form-control" required>
     </div>
 
 
     <div class="mb-3 col-md-4">
         <label class="form-label">Data De Nascimento</label>
-        <input type="date" asp-for="Data_De_Nascimento" class="form-control">
+        <input type="date" asp-for="Data_De_Nascimento" class="form-control" required>
     </div>
 
     <p>Endereço:</p>
 
     <div class="mb-3 col-md-4">
         <label class="form-label">CEP</label>
-        <input type="text" asp-for="CEP" class="form-control">
+        @if (TempData["ErroCepInvalida"] != null)
+        {
+            <p class="erro">@TempData["ErroCepInvalida"]</p>
+        }
+        <input type="text" asp-for="CEP" id="CEP" class="form-control" required>
     </div>
 
     <div class="mb-3 col-md-4">
         <label class="form-label">Logradouro</label>
-        <input type="text" asp-for="Logradouro" class="form-control">
+        @if (TempData["ErroEnderecoInvalida"] != null)
+        {
+            <p class="erro">@TempData["ErroEnderecoInvalida"]</p>
+        }
+        <input type="text" asp-for="Logradouro" id="Logradouro" class="form-control" required>
     </div>
-
 
     <div class="mb-3 col-md-4">
         <label class="form-label">Numero</label>
-        <input type="text" asp-for="Numero" class="form-control">
+        @if (TempData["ErroNumeroInvalida"] != null)
+        {
+            <p class="erro">@TempData["ErroNumeroInvalida"]</p>
+        }
+        <input type="text" asp-for="Numero" class="form-control" required>
     </div>
 
     <div class="mb-3 col-md-4">
         <label class="form-label">Bairo</label>
-        <input type="text" asp-for="Bairo" class="form-control">
+        @if (TempData["ErroBairroInvalida"] != null)
+        {
+            <p class="erro">@TempData["ErroBairroInvalida"]</p>
+        }
+        <input type="text" asp-for="Bairro" id="Bairro" class="form-control" required>
     </div>
-
 
     <div class="mb-3 col-md-4">
         <label class="form-label">Cidade</label>
-        <input type="text" asp-for="Cidade" class="form-control">
+        @if (TempData["ErroCidadeInvalida"] != null)
+        {
+            <p class="erro">@TempData["ErroCidadeInvalida"]</p>
+        }
+        <input type="text" asp-for="Cidade" id="Cidade" class="form-control" required>
     </div>
 
     <div class="mb-3 col-md-4">
         <label class="form-label">Estado</label>
-        <input type="text" asp-for="Estado" class="form-control">
+        @if (TempData["ErroEstadoInvalido"] != null)
+        {
+            <p class="erro">@TempData["ErroEstadoInvalido"]</p>
+        }
+        <input type="text" asp-for="Estado" id="Estado" class="form-control" required>
     </div>
+
 
 
     <div class="text-center">

@@ -30,16 +30,28 @@
         {
             <p class="erro">@TempData["ErroNome"]</p>
         }
+        @if (TempData["ErroNomeInvalida"] != null)
+        {
+            <p class="erro">@TempData["ErroNomeInvalida"]</p>
+        }
         <input type="text" asp-for="Nome" class="form-control" required>
     </div>
 
     <div class="mb-3 col-md-4">
         <label class="form-label">Cpf</label>
+        @if (TempData["ErroCpfInvalida"] != null)
+        {
+            <p class="erro">@TempData["ErroCpfInvalida"]</p>
+        }
         <input type="text" asp-for="Cpf" class="form-control" required>
     </div>
 
     <div class="mb-3 col-md-4">
         <label class="form-label">Matricula</label>
+        @if (TempData["ErroMatriculaInvalida"] != null)
+        {
+            <p class="erro">@TempData["ErroMatriculaInvalida"]</p>
+        }
         <input type="text" asp-for="Matricula" class="form-control" required>
     </div>
 
@@ -53,31 +65,55 @@
 
     <div class="mb-3 col-md-4" >
         <label class="form-label">CEP</label>
+        @if (TempData["ErroCepInvalida"] != null)
+        {
+            <p class="erro">@TempData["ErroCepInvalida"]</p>
+        }
         <input type="text" asp-for="CEP" id="CEP" class="form-control" required>
     </div>
 
     <div class="mb-3 col-md-4">
         <label class="form-label">Logradouro</label>
+        @if (TempData["ErroEnderecoInvalida"] != null)
+        {
+            <p class="erro">@TempData["ErroEnderecoInvalida"]</p>
+        }
         <input type="text" asp-for="Logradouro" id="Logradouro" class="form-control" required>
     </div>
 
     <div class="mb-3 col-md-4">
         <label class="form-label">Numero</label>
+        @if (TempData["ErroNumeroInvalida"] != null)
+        {
+            <p class="erro">@TempData["ErroNumeroInvalida"]</p>
+        }
         <input type="text" asp-for="Numero" class="form-control" required>
     </div>
 
     <div class="mb-3 col-md-4">
         <label class="form-label">Bairo</label>
-        <input type="text" asp-for="Bairo" id="Bairro" class="form-control" required>
+        @if (TempData["ErroBairroInvalida"] != null)
+        {
+            <p class="erro">@TempData["ErroBairroInvalida"]</p>
+        }
+        <input type="text" asp-for="Bairro" id="Bairro" class="form-control" required>
     </div>
 
     <div class="mb-3 col-md-4">
         <label class="form-label">Cidade</label>
+        @if (TempData["ErroCidadeInvalida"] != null)
+        {
+            <p class="erro">@TempData["ErroCidadeInvalida"]</p>
+        }
         <input type="text" asp-for="Cidade" id="Cidade" class="form-control" required>
     </div>
 
     <div class="mb-3 col-md-4">
         <label class="form-label">Estado</label>
+        @if (TempData["ErroEstadoInvalido"] != null)
+        {
+            <p class="erro">@TempData["ErroEstadoInvalido"]</p>
+        }
         <input type="text" asp-for="Estado" id="Estado" class="form-control" required>
     </div>
 

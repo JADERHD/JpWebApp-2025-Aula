@@ -13,7 +13,7 @@
         public string? Logradouro { get; set; }
         public string? Cidade { get; set; }
         public string? Estado { get; set; }
-        public string? Bairo { get; set; }
+        public string? Bairro { get; set; }
         public string? Numero { get; set; }
 
         //endereço
@@ -21,7 +21,7 @@
         //logradouro
         //cidade
         //estado
-        //bairo
+        //bairro
         //numero
     }
 }

@@ -39,5 +39,25 @@ namespace JpWebApp.Data.Repositorio
             _bancoContexto.Aluno.Add(aluno);
             _bancoContexto.SaveChanges();
         }
+
+        public bool TemAlunoComCpf(string cpf)
+        {
+            return _bancoContexto.Aluno.FirstOrDefault(a => a.Cpf == cpf) != null;
+        }
+
+        public bool TemAlunoComMatricula(string matricula)
+        {
+            return _bancoContexto.Aluno.FirstOrDefault(a => a.Matricula == matricula) != null;
+        }
+        public bool TemAlunoComCpf(string cpf, int id)
+        {
+            return _bancoContexto.Aluno.FirstOrDefault(a => a.Cpf == cpf && a.Id != id) != null;
+        }
+
+        public bool TemAlunoComMatricula(string matricula, int id)
+        {
+            return _bancoContexto.Aluno.FirstOrDefault(a => a.Matricula == matricula && a.Id != id) != null;
+        }
+
     }
 }
