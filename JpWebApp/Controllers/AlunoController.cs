@@ -17,10 +17,14 @@ namespace JpWebApp.Controllers
         }
 
 
-        public IActionResult Index()
+        public IActionResult Index(string? buscar)
         {
             var alunos = _alunoRepositorio.GetAlunos();
-
+            if (buscar != null)
+            {
+                alunos = _alunoRepositorio.GetAlunosComNome(buscar);
+            }
+            
             return View(alunos);
         }
 

@@ -59,5 +59,9 @@ namespace JpWebApp.Data.Repositorio
             return _bancoContexto.Aluno.FirstOrDefault(a => a.Matricula == matricula && a.Id != id) != null;
         }
 
+        public IEnumerable<Aluno> GetAlunosComNome(string buscar)
+        {
+            return _bancoContexto.Aluno.Where(a => a.Nome.Contains(buscar));
+        }
     }
 }
