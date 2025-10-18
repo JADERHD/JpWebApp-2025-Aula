@@ -1,5 +1,6 @@
 ﻿using JpWebApp.Data.Repositorio.Interfaces;
 using JpWebApp.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JpWebApp.Controllers
@@ -25,6 +26,8 @@ namespace JpWebApp.Controllers
                 var retorno = _usuarioRepositorio.ValidarUsuario(usuario);
                 if (retorno != null)
                 {
+
+                    this.HttpContext.Session.SetString("usuarioPerfil", ((UsuarioPerfil)(retorno.Perfil ?? 0)).ToString());
                     return RedirectToAction("Index", "Home");
                 }
 
@@ -37,7 +40,7 @@ namespace JpWebApp.Controllers
                 }
                 */
             }
-            catch (Exception e)
+            catch (Exception)
             {
                
             }

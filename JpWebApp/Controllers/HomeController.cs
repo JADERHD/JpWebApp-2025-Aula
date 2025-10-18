@@ -25,9 +25,8 @@ namespace JpWebApp.Controllers
         {
             return View();
         }
-        //PaginaDoJader
 
-        public IActionResult PaginaDoJader()
+        public IActionResult Professora()
         {
             return View();
         }

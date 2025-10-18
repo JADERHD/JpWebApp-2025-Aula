@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -26,10 +30,16 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacidade</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="PaginaDoJader">Pagina Do Jader</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Professora">Professora Katia</a>
                         </li>
+                        @if (HttpContextAccessor?.HttpContext?.Session.GetString("usuarioPerfil") == UsuarioPerfil.Admin.ToString())
+                        {   <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Aluno" asp-action="Index">Alunos</a>
+                            </li>
+                        }
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Aluno" asp-action="Index">Alunos</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Fazer Login</a>
                         </li>
                     </ul>
                 </div>

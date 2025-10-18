@@ -23,6 +23,15 @@
         <input type="text" asp-for="Senha" class="form-control ">
     </div>
 
+    <div class="mb-3 col-md-2">
+        <p>Tipo:</p>
+        <label class="form-label">Usuario</label>
+        <input type="radio" asp-for="Perfil" value="2" checked>
+        <label class="form-label">Admin</label>
+        <input type="radio" asp-for="Perfil" value="1">
+    </div>
+
+
     <div class="text-center">
         <button type="submit" class="btn btn-primary">Cadastrar</button>
         <a class="btn btn-primary" type="button" asp-controller="Login" asp-action="Index"> Voltar</a>

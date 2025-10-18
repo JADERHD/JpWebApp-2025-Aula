@@ -21,6 +21,10 @@ namespace JpWebApp
             builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
             builder.Services.AddScoped<IAlunoRepositorio, AlunoRepositorio>();
 
+            //session
+            builder.Services.AddHttpContextAccessor();
+            builder.Services.AddSession();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -35,6 +39,9 @@ namespace JpWebApp
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            //session
+            app.UseSession();
 
             app.UseAuthorization();
 
