@@ -49,8 +49,6 @@ namespace JpWebApp.Controllers
 
 
             return View("Index");
-            //return RedirectToAction("Index", "Login");
-            //return Redirect("/Home");
         }
 
         public IActionResult Cadastro()

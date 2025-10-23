@@ -24,7 +24,7 @@ namespace JpWebApp.Data.Repositorio
            return  _bancoContexto.Usuario.Where(a => a.Email == email).FirstOrDefault();
         }
 
-        public Usuario ValidarUsuario(Usuario usuario)
+        public Usuario? ValidarUsuario(Usuario usuario)
         {
             return _bancoContexto.Usuario.FirstOrDefault(a => a.Email == usuario.Email && a.Senha == usuario.Senha);
         }

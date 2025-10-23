@@ -8,6 +8,6 @@ namespace JpWebApp.Data.Repositorio.Interfaces
 
         public Usuario? GetUsuarioPorEmail(string email);
 
-        public Usuario ValidarUsuario(Usuario usuario);
+        public Usuario? ValidarUsuario(Usuario usuario);
     }
 }

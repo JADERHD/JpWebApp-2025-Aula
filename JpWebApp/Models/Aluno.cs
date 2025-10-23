@@ -15,13 +15,5 @@
         public string? Estado { get; set; }
         public string? Bairro { get; set; }
         public string? Numero { get; set; }
-
-        //endereço
-        // CEP
-        //logradouro
-        //cidade
-        //estado
-        //bairro
-        //numero
     }
 }

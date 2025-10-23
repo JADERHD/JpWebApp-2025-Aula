@@ -1,5 +1,4 @@
 ﻿using JpWebApp.Models;
-using System.Collections;
 
 namespace JpWebApp.Data.Repositorio.interfaces
 {

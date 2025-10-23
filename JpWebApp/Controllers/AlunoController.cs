@@ -1,6 +1,5 @@
-﻿using JpWebApp.Data.Repositorio;
+﻿
 using JpWebApp.Data.Repositorio.interfaces;
-using JpWebApp.Data.Repositorio.Interfaces;
 using JpWebApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;

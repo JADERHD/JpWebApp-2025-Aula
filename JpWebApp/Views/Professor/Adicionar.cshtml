@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewData["Title"] = "Cadastrar Professor";
+}
+
+<style>
+    .erro {
+        color: red;
+    }
+
+</style>
+
+@model Professor
+
+@if (TempData["MsgErro"] != null)
+{
+    <div class="alert-danger">
+        @TempData["MsgErro"]
+    </div>
+}
+
+<h1>Cadastrar Professor:</h1>
+
+<form asp-controller="Professor" asp-action="NovoProfessor" method="post">
+
+    <p>Dados Gerais:</p>
+
+    <div class="mb-3 col-md-4">
+        <label class="form-label">Nome Completo</label>
+        @if (TempData["ErroNome"] != null)
+        {
+            <p class="erro">@TempData["ErroNome"]</p>
+        }
+        @if (TempData["ErroNomeInvalida"] != null)
+        {
+            <p class="erro">@TempData["ErroNomeInvalida"]</p>
+        }
+        <input type="text" asp-for="NomeCompleto" class="form-control" required>
+    </div>
+
+    <div class="mb-3 col-md-4">
+        <label class="form-label">Diciplina</label>
+        @if (TempData["ErroDisciplinaInvalida"] != null)
+        {
+            <p class="erro">@TempData["ErroDisciplinaInvalida"]</p>
+        }
+        <input type="text" asp-for="Disciplina" class="form-control" required>
+    </div>
+
+    <div class="mb-3 col-md-4">
+        <label class="form-label">Email</label>
+        @if (TempData["ErroEmailInvalido"] != null)
+        {
+            <p class="erro">@TempData["ErroEmailInvalido"]</p>
+        }
+        <input type="email" asp-for="Email" class="form-control" required>
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <a class="btn btn-primary" type="button" asp-controller="Professor" asp-action="Index">Voltar</a>
+    </div>
+</form>
