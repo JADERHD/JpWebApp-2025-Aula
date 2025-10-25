@@ -1,0 +1,31 @@
+﻿@model IEnumerable<RelatorioViewModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Matricula</th>
+            <th scope="col">Turma</th>
+            <th scope="col">Data inicio</th>
+            <th scope="col">Data Fim</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model !=null && Model.Any())
+        {
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Aluno.Nome</td>
+                    <td>@item.Aluno.Matricula </td>
+                    <td>@item.Turma.Nome</td>
+                    <td>@item.Turma.DataInicio</td>
+                    <td>@item.Turma.DataFim</td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>

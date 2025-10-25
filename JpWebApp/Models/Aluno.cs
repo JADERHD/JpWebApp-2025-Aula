@@ -15,5 +15,9 @@
         public string? Estado { get; set; }
         public string? Bairro { get; set; }
         public string? Numero { get; set; }
+
+
+        //estrangeiro
+        public int? IdTurma { get; set; }
     }
 }

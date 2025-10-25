@@ -13,15 +13,16 @@ namespace JpWebApp.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-           
             modelBuilder.ApplyConfiguration(new UsuarioMapeamento());
             modelBuilder.ApplyConfiguration(new AlunoMapeamento());
             modelBuilder.ApplyConfiguration(new ProfessorMapeamento());
+            modelBuilder.ApplyConfiguration(new TurmaMapeamento());
         }
 
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Aluno> Aluno { get; set; }
         public DbSet<Professor> Professor { get; set; }
+        public DbSet<Turma> Turma { get; set; }
 
         public void CriarTabelas()
         {
@@ -49,7 +50,8 @@ namespace JpWebApp.Data
                     Cidade VARCHAR(100) NULL,
                     Estado VARCHAR(2) NULL,
                     Bairro VARCHAR(100) NULL,
-                    Numero VARCHAR(50) NULL
+                    Numero VARCHAR(50) NULL,
+                    IdTurma INT NULL
                 );
                 """;
             this.Database.ExecuteSqlRaw(createAlunoQuery);
@@ -64,6 +66,17 @@ namespace JpWebApp.Data
                 );
                 """;
             this.Database.ExecuteSqlRaw(createProfessorQuery);
+
+            var createTurmaQuery = """
+                IF NOT EXISTS (SELECT * FROM sysobjects WHERE name = 'Turma' AND xtype = 'U')
+                CREATE TABLE Turma (
+                    Id INT IDENTITY(1,1) PRIMARY KEY,
+                    Nome VARCHAR(50) NOT NULL,
+                    DataInicio DATE NOT NULL,
+                    DataFim DATE NOT NULL
+                );
+                """;
+            this.Database.ExecuteSqlRaw(createTurmaQuery);
 
         }
     }

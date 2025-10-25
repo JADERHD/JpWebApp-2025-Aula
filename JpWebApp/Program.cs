@@ -21,6 +21,7 @@ namespace JpWebApp
             builder.Services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
             builder.Services.AddScoped<IAlunoRepositorio, AlunoRepositorio>();
             builder.Services.AddScoped<IProfessorRepositorio, ProfessorRepositorio>();
+            builder.Services.AddScoped<ITurmaRepositorio, TurmaRepositorio>();
 
             //session
             builder.Services.AddHttpContextAccessor();

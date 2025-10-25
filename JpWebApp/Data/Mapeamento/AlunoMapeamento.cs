@@ -24,6 +24,8 @@ namespace JpWebApp.Data.Mapeamento
             builder.Property(t => t.Estado).HasColumnType("varchar(2)");
             builder.Property(t => t.Bairro).HasColumnType("varchar(100)");
             builder.Property(t => t.Numero).HasColumnType("varchar(50)");
+            
+            builder.Property(t => t.IdTurma).HasColumnType("int");
         }
     }
 }
